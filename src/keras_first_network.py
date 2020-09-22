@@ -1,4 +1,5 @@
 #fist neural network with keras tutorial
+from numpy import argmax
 from numpy import loadtxt
 from keras.models import Sequential
 from keras.layers import Dense
@@ -24,4 +25,11 @@ model.fit(X, y, epochs=150, batch_size=10)
 # evaluate the keras model
 _, accuracy = model.evaluate(X, y)
 print('Accuracy: {:02f}'.format(accuracy*100))
+
+# make class predictions with the model
+predictions = (model.predict(X) > 0.5).astype('int32')
+
+# summarize the first 5 cases
+for i in range(5):
+    print('{} => {} (expected {})'.format(X[i].tolist(), predictions[i], y[i]))
 
