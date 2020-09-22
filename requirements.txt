@@ -1,0 +1,8 @@
+scipy
+matplotlib
+pandas
+statsmodels
+sklearn
+theano
+tensorflow
+keras
